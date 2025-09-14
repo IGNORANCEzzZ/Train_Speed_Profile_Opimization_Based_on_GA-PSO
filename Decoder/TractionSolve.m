@@ -1,9 +1,10 @@
    function [Pos,Velocity,Force,Time,Energy,Mode,f_punc]=TractionSolve(SwitchPoint)
 %% 输入：
 %SwitchPoint：工况切换点
-%|切换位置 | 工况类型 |工况切换位置上限|工况切换位置下限
+%|切换位置|工况类型|工况切换位置上限|工况切换位置下限
 %切换位置，单位m
 %工况类型：0-无效工况 1-牵引 2-恒速 3-惰行 4-制动|5-过分相
+
 %% 输出
 %Pos：位置矩阵，单位m
 %Velocity：速度矩阵，单位，km/h

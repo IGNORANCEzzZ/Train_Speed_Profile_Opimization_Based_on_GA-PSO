@@ -5,6 +5,8 @@ addpath(genpath(fullfile(base_path, 'PorjectInput_LineParameters')));
 addpath(genpath(fullfile(base_path, 'TrainEnviroment')));
 addpath(genpath(fullfile(base_path, 'GA')));
 addpath(genpath(fullfile(base_path, 'Dimensionality_Reduction')));
+addpath(genpath(fullfile(base_path, 'Encoder')));
+addpath(genpath(fullfile(base_path, 'Decoder')));
 
 %% 机车固定参数
 global alpha_Re; %再生制动利用率
@@ -12,7 +14,7 @@ alpha_Re=0.7;
 global Eta;%机车效率
 Eta=0.9;
 global g;%N/kg
-g=9.81; 
+g=9.81; r
 global Y;%回转质量系数
 Y=0.006;
 global M;
