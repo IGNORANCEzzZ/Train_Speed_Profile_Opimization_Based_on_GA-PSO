@@ -9,23 +9,23 @@ global Population_Size;
 
 [Population_G]=InitPopulation();
 iteration=1;
-flag_disaster=0;%±íÕ÷ÊÇ·ñÔËÓÃÁËÌìÔÖ£¬ÒÔÆÆ»µÖÖÈº
+flag_disaster=0;%è¡¨å¾æ˜¯å¦è¿ç”¨äº†å¤©ç¾ï¼Œä»¥ç ´åç§ç¾¤
 BestFitness_History={};
 while 1
     tic
-    disp('´úÊı')
+    disp('ä»£æ•°')
     disp(iteration)
-    disp('¼ÆËã±¾´úÖÖÈºÊÊÓ¦¶È')
+    disp('è®¡ç®—æœ¬ä»£ç§ç¾¤é€‚åº”åº¦')
     [Ranked_Fitness,Ranked_Population]=AllFitnessCalc(Population_G);
-    disp('±¾´ú×îÓÅ¸öÌåÊÊÓ¦¶È= ')
+    disp('æœ¬ä»£æœ€ä¼˜ä¸ªä½“é€‚åº”åº¦= ')
     disp(Ranked_Fitness{1,1}(1,1))
     BestFitness_History{1,iteration}=Ranked_Fitness{1,1}(1,1);
     toc;
     disp(' ')
     
-    % ÌìÔÖÆÆ»µÖÖÈº,ÈÃÆÆ»µºóµÄÖÖÈº²ÎÓëºóĞøµÄÒÅ´«²Ù×÷
+    % å¤©ç¾ç ´åç§ç¾¤,è®©ç ´ååçš„ç§ç¾¤å‚ä¸åç»­çš„é—ä¼ æ“ä½œ
     if iteration>50 && abs(BestFitness_History{1,iteration}-BestFitness_History{1,iteration-1})<0.1  && flag_disaster==0
-        disp('ÌìÔÖÉè¶¨·¢»Ó×÷ÓÃ')
+        disp('å¤©ç¾è®¾å®šå‘æŒ¥ä½œç”¨')
         flag_disaster=1;
         [Population_Disaster]=InitPopulation();
         Population_After_Disaster=Ranked_Population;
@@ -36,9 +36,9 @@ while 1
         [Ranked_Fitness,Ranked_Population]=AllFitnessCalc(Population_G);
     end
     
-    if Ranked_Fitness{1,1}(1,1)<fitness_stop%Í£»ú×¼Ôò1£º´ïµ½ÊÊÓ¦¶ÈÒªÇó
+    if Ranked_Fitness{1,1}(1,1)<fitness_stop%åœæœºå‡†åˆ™1ï¼šè¾¾åˆ°é€‚åº”åº¦è¦æ±‚
         break;
-    else%ÒÅ´«²Ù×÷
+    else%é—ä¼ æ“ä½œ
         [Fitness_Selected,Population_Selected]=Select(Ranked_Fitness,Ranked_Population);
         [Population_Crossed]=Cross(Population_Selected);
         [Population_Mutated]=Mutation(Population_Crossed);
@@ -46,7 +46,7 @@ while 1
     Population_G=Population_Mutated;
     iteration=iteration+1;
     
-    if iteration>=200%Í£»ú×¼Ôò2£º´ïµ½µü´úÉÏÏŞ
+    if iteration>=200%åœæœºå‡†åˆ™2ï¼šè¾¾åˆ°è¿­ä»£ä¸Šé™
         break;
     end     
 end

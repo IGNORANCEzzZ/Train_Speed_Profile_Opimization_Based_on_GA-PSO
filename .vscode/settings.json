@@ -1,0 +1,12 @@
+{
+    "MATLAB.installPath": "E:\\matlab2023",
+    // 自动检测文件编码
+    "files.autoGuessEncoding":true,
+    
+    // 针对MATLAB文件的特定设置
+    "[matlab]": {
+        "files.encoding": "gbk"
+    },
+    // 或者设置默认编码
+    "files.encoding": "gbk"  // 这会影响所有文件，谨慎使用
+}
